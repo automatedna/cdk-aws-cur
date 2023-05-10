@@ -5,7 +5,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   cdkVersion: '2.78.0',
   defaultReleaseBranch: 'main',
   jsiiVersion: '~5.0.0',
-  name: 'cdk-aws-cur',
+  name: '@automatedna/cdk-aws-cur',
   projenrcTs: true,
   repositoryUrl: 'https://github.com/automatedna/cdk-aws-cur.git',
   keywords: [
