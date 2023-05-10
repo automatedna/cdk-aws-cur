@@ -1,17 +1,48 @@
-import { awscdk } from 'projen';
+import { awscdk, javascript } from 'projen';
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'Brandon Miller',
-  authorAddress: 'bmiller@renovo1.com',
-  cdkVersion: '2.1.0',
+  authorAddress: 'devops@automatedna.com',
+  cdkVersion: '2.78.0',
   defaultReleaseBranch: 'main',
   jsiiVersion: '~5.0.0',
-  name: 'cdk-library-aws-cur',
+  name: 'cdk-aws-cur',
   projenrcTs: true,
-  repositoryUrl: 'https://github.com/bmiller/cdk-library-aws-cur.git',
-
-  // deps: [],                /* Runtime dependencies of this module. */
-  // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
-  // devDeps: [],             /* Build dependencies for this module. */
-  // packageName: undefined,  /* The "name" in package.json. */
+  repositoryUrl: 'https://github.com/automatedna/cdk-aws-cur.git',
+  keywords: [
+    'cdk',
+    'aws-cdk',
+    'aws-cdk-construct',
+    'projen',
+    'aws-billing',
+    'aws-cur',
+  ],
+  depsUpgrade: true,
+  depsUpgradeOptions: {
+    workflowOptions: {
+      schedule: javascript.UpgradeDependenciesSchedule.WEEKLY,
+    },
+  },
+  githubOptions: {
+    pullRequestLintOptions: {
+      semanticTitle: true,
+      semanticTitleOptions: {
+        types: [
+          'chore',
+          'docs',
+          'feat',
+          'fix',
+          'ci',
+          'refactor',
+          'test',
+        ],
+      },
+    },
+  },
+  stale: false,
+  releaseToNpm: true,
+  release: true,
+  npmAccess: javascript.NpmAccess.PUBLIC,
+  docgen: true,
+  eslint: true,
 });
 project.synth();

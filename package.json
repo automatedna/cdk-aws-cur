@@ -1,8 +1,8 @@
 {
-  "name": "cdk-library-aws-cur",
+  "name": "cdk-aws-cur",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bmiller/cdk-library-aws-cur.git"
+    "url": "https://github.com/automatedna/cdk-aws-cur.git"
   },
   "scripts": {
     "build": "npx projen build",
@@ -30,7 +30,7 @@
   },
   "author": {
     "name": "Brandon Miller",
-    "email": "bmiller@renovo1.com",
+    "email": "devops@automatedna.com",
     "organization": false
   },
   "devDependencies": {
@@ -38,7 +38,7 @@
     "@types/node": "^16",
     "@typescript-eslint/eslint-plugin": "^5",
     "@typescript-eslint/parser": "^5",
-    "aws-cdk-lib": "2.1.0",
+    "aws-cdk-lib": "2.78.0",
     "constructs": "10.0.5",
     "eslint": "^8",
     "eslint-import-resolver-node": "^0.3.7",
@@ -58,11 +58,16 @@
     "typescript": "^5.0.4"
   },
   "peerDependencies": {
-    "aws-cdk-lib": "^2.1.0",
+    "aws-cdk-lib": "^2.78.0",
     "constructs": "^10.0.5"
   },
   "keywords": [
-    "cdk"
+    "aws-billing",
+    "aws-cdk",
+    "aws-cdk-construct",
+    "aws-cur",
+    "cdk",
+    "projen"
   ],
   "main": "lib/index.js",
   "license": "Apache-2.0",
