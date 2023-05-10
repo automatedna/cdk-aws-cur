@@ -21,6 +21,7 @@ abstract class ReportDefinitionBase extends Resource implements IReportDefinitio
 
 export enum AdditionalSchemaElements {
   RESOURCES = 'RESOURCES',
+  SPLIT_COST_ALLOCATION_DATA = 'SPLIT_COST_ALLOCATION_DATA',
 }
 
 export enum Compression {
@@ -188,6 +189,29 @@ export class ReportDefinition extends ReportDefinitionBase {
     if (props.s3Prefix && props.s3Prefix.includes(' ')) {
       throw new Error('s3Prefix must not contain spaces');
     }
+
+    if (!props.reportName.match(/^[0-9A-Za-z!\-_.*'()]+$/) || props.reportName.length > 256) {
+      throw new Error('reportName must match the regex ^[0-9A-Za-z!\-_.*\'()]+$ and be no longer than 256 characters');
+    }
+
+    if (props.additionalArtifacts != undefined) {
+      if ((props.additionalArtifacts.includes(AdditionalArtifacts.QUICKSIGHT) ||
+        props.additionalArtifacts.includes(AdditionalArtifacts.REDSHIFT)) &&
+        props.compression !== Compression.GZIP) {
+        throw new Error('If QuickSight or Redshift artifacts are selected you must select GZIP compression');
+      }
+
+      if (props.additionalArtifacts.includes(AdditionalArtifacts.ATHENA) &&
+        (props.additionalArtifacts.length > 1)) {
+        throw new Error('If Athena artifact is selected you cant select any other artifact type at the same time');
+      }
+
+      if (props.additionalArtifacts.includes(AdditionalArtifacts.ATHENA) &&
+        props.reportVersioning !== ReportVersioning.OVERWRITE_REPORT) {
+        throw new Error('If Athena artifact is selected report versioning must use OVERWRITE_REPORT');
+      }
+    }
+
     const s3Region = Stack.of(props.s3Bucket).region;
 
     new cur.CfnReportDefinition(this, 'ReportDefinition', {

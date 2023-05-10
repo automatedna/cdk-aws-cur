@@ -626,10 +626,16 @@ public readonly reportName: string;
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@automatedna/cdk-aws-cur.AdditionalSchemaElements.RESOURCES">RESOURCES</a></code> | *No description.* |
+| <code><a href="#@automatedna/cdk-aws-cur.AdditionalSchemaElements.SPLIT_COST_ALLOCATION_DATA">SPLIT_COST_ALLOCATION_DATA</a></code> | *No description.* |
 
 ---
 
 ##### `RESOURCES` <a name="RESOURCES" id="@automatedna/cdk-aws-cur.AdditionalSchemaElements.RESOURCES"></a>
+
+---
+
+
+##### `SPLIT_COST_ALLOCATION_DATA` <a name="SPLIT_COST_ALLOCATION_DATA" id="@automatedna/cdk-aws-cur.AdditionalSchemaElements.SPLIT_COST_ALLOCATION_DATA"></a>
 
 ---
 
