@@ -1,6 +1,6 @@
 # Cost and Usage Reporting Construct for AWS CDK
 
-[![build](https://github.com/automatedna/cdk-aws-cur/actions/workflows/build.yml/badge.svg)](https://github.com/automatedna/cdk-aws-cur//workflows/build.yml)
+[![build](https://github.com/automatedna/cdk-aws-cur/actions/workflows/build.yml/badge.svg)](https://github.com/automatedna/cdk-aws-cur/workflows/build.yml)
 
 ## Features
 
